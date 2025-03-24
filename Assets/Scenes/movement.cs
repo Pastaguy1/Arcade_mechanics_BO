@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        /*
+        
                 if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
                 {
                     moveDirection.y = jumpPower;
@@ -49,11 +49,11 @@ public class Movement : MonoBehaviour
                 if (!characterController.isGrounded)
                 {
                     moveDirection.y -= gravity * Time.deltaTime;
-                }*/
+                }
 
         if (Input.GetKey(KeyCode.R) && canMove)
         {
-           // characterController.height = crouchHeight;
+            characterController.height = crouchHeight;
             walkSpeed = crouchSpeed;
             runSpeed = crouchSpeed;
 
