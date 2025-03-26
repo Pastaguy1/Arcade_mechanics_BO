@@ -25,13 +25,17 @@ public class TrapTrigger : MonoBehaviour
             Rigidbody rb = other.GetComponent<Rigidbody>();
             Transform t = other.transform;
             rb.constraints = RigidbodyConstraints.None;
+           
+            
             GameObject p = Instantiate(ps, transform);
             p.transform.position = t.position;
             
             rb.AddExplosionForce(force, new Vector3(t.position.x, t.position.y, t.position.z), 0f);
             rb.AddExplosionForce(force, new Vector3(t.position.x, t.position.y, t.position.z + 1f), 0f);
-            Destroy(p, 1);
+            Destroy(p, 5f);
             //Controls uit
+            
+            
             Movement mbScript = other.GetComponentInChildren<Movement>();
             mbScript.enabled = false;
             
